@@ -31,11 +31,14 @@ def send_pdf(filename):
 
 @app.route("/ai_tutor", methods=['POST'])
 def ai_tutor_reply():
-    question = request.form.get('question')
+    print("YESS")
+    if request.method == 'POST':
+         question  = request.json['question']
+         # app.logger.debug(question)
 
-    reply = get_response(openai_key, question)
+         reply = get_response(openai_key, question)
 
-    return jsonify({'response': 'reply'})
+         return jsonify({'response': reply})
 
 
 if __name__ == '__main__':
