@@ -1,0 +1,8 @@
+/backend/flashcard_generation/.env
+/backend/.env
+
+frontend/lms_app/node_modules/
+
+backend/venv/
+
+/TODO1.md

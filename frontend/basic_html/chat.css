@@ -1,0 +1,94 @@
+.body {
+  overflow: hidden;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.sidenav {
+  width: 200px;
+  position: fixed;
+  background-color: black;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  margin: 0;
+  float: left;
+  padding: 0;
+  margin: 0;
+  color: white;
+  /* text-align: center; */
+  padding-left: 2px;
+}
+.chat {
+  padding-left: 210px;
+}
+.talkbar {
+  position: fixed;
+  bottom: 30px;
+  left: 300px;
+}
+.inputs {
+  width: 1100px;
+  height: 46px;
+  background-color: lightgrey;
+  border-radius: 10px;
+  box-shadow: inset 1px 2px 3px;
+  border: 2px;
+  border-color: grey;
+  margin: 0;
+  padding: 2px;
+}
+.mic-icon:hover {
+  background-color: grey;
+}
+.home:hover,
+.quiz:hover,
+.ai:hover,
+.profile:hover {
+  background-color: lightgrey;
+  color: black;
+  border-radius: 8px;
+}
+.home,
+.quiz,
+.ai,
+.profile {
+  padding: 3px;
+  font-size: x-large;
+  padding-bottom: 15px;
+}
+.title {
+  padding-left: 210px;
+  text-align: center;
+  font-size: xx-large;
+}
+.edmunds {
+  font-size: xx-large;
+  text-align: center;
+}
+.data {
+  padding-left: 210px;
+  text-align: center;
+  font-size: x-large;
+  /* background-color: aliceblue; */
+}
+.performance {
+  padding-left: 210px;
+  font-size: x-large;
+  /* background-color: aqua; */
+  height: 200px;
+}
+.weak {
+  padding-left: 210px;
+  float: left;
+  /* background-color: aquamarine; */
+  width: 50%;
+  height: 350px;
+}
+.time-taken {
+  /* background-color: bisque; */
+  height: 350px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
