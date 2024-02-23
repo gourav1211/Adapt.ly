@@ -11,7 +11,7 @@ function FlashCard({ question, answer }) {
     setCurrent(newState);
   }
   return (
-    <section className="flex flex-col px-20 pt-12 pb-5 bg-neutral-400 w-[300px] mt-10 ml-10">
+    <section className="flex flex-col px-20 pt-12 pb-5 bg-neutral-400 w-[300px] mt-10 ml-10 bg-yellow-300 rounded-lg">
       <p>{currentState == 1 ? question : answer}</p>
       <div className="justify-center self-center px-12 py-4 mt-20 bg-white rounded-[50px]">
         <button onClick={() => handleChange(currentState)}>Flip</button>

@@ -7,6 +7,7 @@ import CoursePage from "./pages/CoursePage";
 import CourseMaterial from "./pages/CourseMaterial";
 import FlashCards from "./pages/FlashCards";
 import ShortNotes from "./pages/ShortNotes";
+import KnowledgeGraph from "./pages/KnowledgeGraph";
 
 function App() {
   return (
@@ -35,7 +36,12 @@ function App() {
           <Route
             exact
             path="/short_notes/:course_code/:week_number"
-            element={<ShortNotes/>}
+            element={<ShortNotes />}
+          />
+          <Route
+            exact
+            path="/knowledge_graph/:course_code/:week_number"
+            element={<KnowledgeGraph />}
           />
         </Routes>
       </BrowserRouter>
