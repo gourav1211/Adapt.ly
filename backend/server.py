@@ -1,13 +1,14 @@
 from flask import Flask, request, jsonify, send_from_directory
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from ai_tutor.tutor import get_response
+from knowledge_graph.knowledge_graph import open_knowledge_graph
 from dotenv import load_dotenv
 import os
 import json
 
 app = Flask(__name__)
 
-CORS(app)
+cors = CORS(app)
 
 load_dotenv()
 
@@ -47,9 +48,9 @@ def list_courses():
         studentId = request.json['studentId']
 
         courses = [{"course_code": "ai", "faculty": "sujatha v", "course_name":
-                    "Artificial Intelligence", "course_info": "The course
+                    "Artificial Intelligence", "course_info": """The course
                     accounts for 4 credits and serves as a foundation for future
-                    career in AI / ML", "summary": "Covers basic ANN, CNNS, RNNS, VAE, Transformers and Random Forest"}]
+                    career in AI / ML""", "summary": "Covers basic ANN, CNNS, RNNS, VAE, Transformers and Random Forest"}]
         return json.dumps(courses)
 
 
@@ -73,11 +74,24 @@ def course_week_info():
         course_code = request.json['course_code']
         week_num = request.json['week_num']
 
-        return json.dumps({'week_index': 1, 'files': ['ai_1.pdf', 'ai_2.pdf']}})
+        return json.dumps({'week_index': 1, 'files': ['ai_1.pdf', 'ai_2.pdf']})
+
+
+@ app.route('/knowledge_graph', methods=['POST'])
+def show_knowledge_graph():
+    if request.method == 'POST':
+        print("Knowledge graph route hit")
+        course_code = request.json['course_code']
+        week_num = request.json['week_num']
+
+        open_knowledge_graph()
+        return json.dumps({'status': 'successful'})
+
 
 @ app.route('/weak_topics', methods=['POST'])
 def get_weak_topics():
     pass
+
 
 if __name__ == '__main__':
     app.run(debug=True)

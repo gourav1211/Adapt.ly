@@ -864,14 +864,15 @@ function highlightFilter(filter) {
     },
     "physics": {
         "enabled": true,
-        "repulsion": {
-            "centralGravity": 0.2,
-            "damping": 0.09,
-            "nodeDistance": 150,
-            "springConstant": 0.05,
-            "springLength": 400
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.015,
+            "damping": 0.4,
+            "gravitationalConstant": -31,
+            "springConstant": 0.08,
+            "springLength": 100
         },
-        "solver": "repulsion",
+        "solver": "forceAtlas2Based",
         "stabilization": {
             "enabled": true,
             "fit": true,

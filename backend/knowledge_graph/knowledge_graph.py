@@ -6,9 +6,9 @@ from langchain.document_loaders import PyPDFDirectoryLoader, DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from pathlib import Path
 
-from helpers.df_helpers import df2Graph
-from helpers.df_helpers import graph2Df
-from helpers.df_helpers import documents2Dataframe
+from .helpers.df_helpers import df2Graph
+from .helpers.df_helpers import graph2Df
+from .helpers.df_helpers import documents2Dataframe
 import random
 
 import networkx as nx
@@ -47,10 +47,10 @@ def open_knowledge_graph(data_direct: str = "cureus", regen=False):
     # Input data directory
     data_dir = data_direct
     # data_dir = "problem_statement"
-    inputdirectory = Path(f"./data_input/{data_dir}")
+    inputdirectory = Path(f"./knowledge_graph/data_input/{data_dir}")
     # This is where the output csv files will be written
     out_dir = data_dir
-    outputdirectory = Path(f"./data_output/{out_dir}")
+    outputdirectory = Path(f"./knowledge_graph/data_output/{out_dir}")
 
     loader = DirectoryLoader(inputdirectory, show_progress=False)
     documents = loader.load()
@@ -148,7 +148,7 @@ def open_knowledge_graph(data_direct: str = "cureus", regen=False):
         G.nodes[row['node']]['size'] = G.degree[row['node']]
     from pyvis.network import Network
 
-    graph_output_directory = "./docs/index.html"
+    graph_output_directory = "./knowledge_graph/docs/index.html"
 
     net = Network(
         notebook=False,
@@ -162,12 +162,9 @@ def open_knowledge_graph(data_direct: str = "cureus", regen=False):
     )
 
     net.from_nx(G)
-    net.repulsion(node_distance=150, spring_length=400)
-    # net.force_atlas_2based(central_gravity=0.015, gravity=-31)
+    # net.repulsion(node_distance=150, spring_length=400)
+    net.force_atlas_2based(central_gravity=0.015, gravity=-31)
     # net.barnes_hut(gravity=-18100, central_gravity=5.05, spring_length=380)
     net.show_buttons(filter_=["physics"])
 
     net.show(graph_output_directory, notebook=False)
-
-
-open_knowledge_graph()
