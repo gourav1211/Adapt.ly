@@ -16,3 +16,4 @@ encouraging the student to self study, ask doubts to personalised AI tutor, revi
 - Innovative quiz evaluation system
 - Dynamic Testing for ensuring that the student focuses more on learning than
   mugging it up
+Figma- https://www.figma.com/file/v3BY8wPThFGLlkGIOd5Dch/Bolt?type=design&node-id=0%3A1&mode=design&t=UqhyhyPhrXgKYe9o-1
